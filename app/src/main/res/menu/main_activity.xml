@@ -1,14 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
-    <item
-        android:id="@+id/recycler_view_click_holder"
-        android:title="In Holder"
-        app:showAsAction="ifRoom"/>
+    <!--<item-->
+        <!--android:id="@+id/recycler_view_click_holder"-->
+        <!--android:title="In Holder"-->
+        <!--app:showAsAction="ifRoom"/>-->
+
+    <!--<item-->
+        <!--android:id="@+id/recycler_view_click_on_create_view_holder"-->
+        <!--android:title="In onCreateHolder"-->
+        <!--app:showAsAction="ifRoom"/>-->
 
     <item
-        android:id="@+id/recycler_view_click_on_create_view_holder"
-        android:title="In onCreateHolder"
+        android:id="@+id/recycler_view_on_touch"
+        android:title="OnTouch example"
         app:showAsAction="ifRoom"/>
 
 </menu>

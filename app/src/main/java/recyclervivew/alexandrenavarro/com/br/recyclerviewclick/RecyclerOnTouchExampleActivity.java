@@ -1,14 +1,16 @@
 package recyclervivew.alexandrenavarro.com.br.recyclerviewclick;
 
-import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.view.Menu;
-import android.view.MenuItem;
+import android.view.View;
+import android.widget.Toast;
 
-public class MainActivity extends AppCompatActivity {
+/**
+ * Created by alexandrenavarro on 4/5/16.
+ */
+public class RecyclerOnTouchExampleActivity extends AppCompatActivity {
 
     private RecyclerView mRecyclerView;
     private RecyclerView.Adapter mAdapter;
@@ -17,7 +19,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_click_in_holder);
 
         mRecyclerView = (RecyclerView) findViewById(R.id.my_recycler_view);
 
@@ -44,28 +46,15 @@ public class MainActivity extends AppCompatActivity {
                 "Example item %s on recyclerview","Example item %s on recyclerview",
                 "Example item %s on recyclerview","Example item %s on recyclerview"};
 
-        mAdapter = new MyAdapter(myDataset);
+        mAdapter = new RecyclerOnTouchExampleAdapter(myDataset);
         mRecyclerView.setAdapter(mAdapter);
-    }
+        mRecyclerView.addOnItemTouchListener(new RecyclerItemClickListener(this, new RecyclerItemClickListener.OnItemClickListener() {
+            @Override
+            public void onItemClick(View view, int position) {
+                Toast.makeText(getApplicationContext(), "Clicked item " + (position + 1), Toast.LENGTH_SHORT).show();
+            }
+        }));
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-         getMenuInflater().inflate(R.menu.main_activity, menu);
-        return super.onCreateOptionsMenu(menu);
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-//        if (item.getItemId() == R.id.recycler_view_click_holder) {
-//            startActivity(new Intent(getApplicationContext(), ClickInHolderActivity.class));
-//        } else if (item.getItemId() == R.id.recycler_view_click_on_create_view_holder) {
-//            startActivity(new Intent(getApplicationContext(), ClickOnCreateViewHolderActivity.class));
-//        }else
-       if(item.getItemId() == R.id.recycler_view_on_touch){
-            startActivity(new Intent(getApplicationContext(), RecyclerOnTouchExampleActivity.class));
-
-        }
-
-        return super.onOptionsItemSelected(item);
+        setTitle("OnTouch Example");
     }
 }

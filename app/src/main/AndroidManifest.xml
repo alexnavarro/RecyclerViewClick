@@ -16,8 +16,9 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".ClickInHolderActivity"/>
-        <activity android:name=".ClickOnCreateViewHolderActivity"/>
+        <activity android:name=".RecyclerOnTouchExampleActivity"/>
+        <!--<activity android:name=".ClickInHolderActivity"/>-->
+        <!--<activity android:name=".ClickOnCreateViewHolderActivity"/>-->
 
     </application>
 
